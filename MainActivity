@@ -1,0 +1,43 @@
+package com.karim.simplegame
+import android.os.Bundle
+import android.os.CountDownTimer
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    private var score = 0
+    private lateinit var scoreTextView: TextView
+    private lateinit var timeTextView: TextView
+    private lateinit var tapButton: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        scoreTextView = findViewById(R.id.scoreTextView)
+        timeTextView = findViewById(R.id.timeTextView)
+        tapButton = findViewById(R.id.tapButton)
+
+        tapButton.setOnClickListener {
+            score++
+            scoreTextView.text = getString(R.string.score_text, score)
+        }
+
+        startGame()
+    }
+
+    private fun startGame() {
+        object : CountDownTimer(30000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeTextView.text = getString(R.string.time_text, millisUntilFinished / 1000)
+            }
+
+            override fun onFinish() {
+                tapButton.isEnabled = false
+                timeTextView.text = getString(R.string.time_up_text)
+            }
+        }.start()
+    }
+}
