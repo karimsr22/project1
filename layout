@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+-<RelativeLayout android:layout_height="match_parent" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_marginTop="50dp" android:layout_centerHorizontal="true" android:text="@string/score_initial" android:id="@+id/scoreTextView"/>
+
+<Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/tap_button" android:id="@+id/tapButton" android:layout_centerInParent="true"/>
+
+<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_marginTop="20dp" android:layout_centerHorizontal="true" android:text="@string/time_initial" android:id="@+id/timeTextView" android:layout_below="@id/tapButton"/>
+
+</RelativeLayout>
